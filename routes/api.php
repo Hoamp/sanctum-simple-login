@@ -28,4 +28,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // logout user
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    Route::group(['middleware' => ['is_admin']], function () {
+        Route::get('/tes', function () {
+            return 'ok';
+        });
+    });
 });

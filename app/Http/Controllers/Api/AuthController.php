@@ -69,7 +69,8 @@ class AuthController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Login sukses',
-                'data' => $success
+                'data' => $success,
+                'user' => auth()->user()
             ], 200);
         } else {
             // jika tidak ada user kembalikan response
